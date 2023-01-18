@@ -7,5 +7,6 @@ namespace VaultAPI.Controllers
     [ApiController]
     public class VaultController : ControllerBase
     {
+
     }
 }
