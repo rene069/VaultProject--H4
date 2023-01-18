@@ -20,12 +20,16 @@ namespace VaultAPI
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseSwaggerUI();
+                app.UseWebAssemblyDebugging();
             }
+            app.UseBlazorFrameworkFiles();
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.MapFallbackToFile("index.html");
 
             app.MapControllers();
 

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using VaultProject__H4;
+using VaultSite;
 
-namespace VaultProject__H4
+namespace VaultSite
 {
     public class Program
     {
