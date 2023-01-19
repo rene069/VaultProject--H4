@@ -44,7 +44,7 @@
 
         var fileStream = new MemoryStream();
 
-        var test =  SelectedFile.OpenReadStream().ReadByte();
+
 
         await SelectedFile.OpenReadStream(5000000000).CopyToAsync(fileStream);
 
