@@ -13,6 +13,5 @@ namespace ServiceLayer.Interface
 
         void DecryptFile(IFormFile file, string password, string outputpath);
 
-
     }
 }

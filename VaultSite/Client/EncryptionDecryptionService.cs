@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace VaultSite.Client
             _httpClient = httpClient;
         }
 
+        #region File
         public async Task<bool> EncryptFile(Stream fileStream, string password)
         {
             var json = JsonSerializer.Serialize(new { File = fileStream, Password = password });
@@ -44,6 +46,8 @@ namespace VaultSite.Client
 
             return true;
         }
+        #endregion
+
 
     }
 

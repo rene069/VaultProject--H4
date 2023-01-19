@@ -10,9 +10,14 @@ namespace ServiceLayer.Services
 {
     public class GenericCRUDService : IGenericCRUDService
     {
+        public readonly VaultContext _vaultContext;
+        public GenericCRUDService(VaultContext vaultContext)
+        {
+            _vaultContext = vaultContext;
+        }
         public void AddNewEntryGeneric<T>(T entry) where T : class
         {
-            using(VaultContext context = new VaultContext())
+            using(VaultContext context = _vaultContext)
             {
                 context.Add(entry);
                 context.SaveChanges();
@@ -21,7 +26,7 @@ namespace ServiceLayer.Services
 
         public void DeleteEntryGeneric<T>(T entry) where T : class
         {
-            using (VaultContext context = new VaultContext())
+            using (VaultContext context = _vaultContext)
             {
                 context.Remove(entry);
                 context.SaveChanges();
@@ -30,7 +35,7 @@ namespace ServiceLayer.Services
 
         public void UpdateEntryGeneric<T>(T entry) where T : class
         {
-            using (VaultContext context = new VaultContext())
+            using (VaultContext context = _vaultContext)
             {
                 context.Update(entry);
                 context.SaveChanges();

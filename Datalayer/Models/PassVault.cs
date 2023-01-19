@@ -8,6 +8,7 @@ namespace DataLayer.Models
 {
     public class PassVault
     {
+        public int PassVaultId { get; set; }
         public string AppName { get; set; }
 
         public string PassSalt { get; set; }

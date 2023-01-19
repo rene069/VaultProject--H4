@@ -44,9 +44,9 @@
 
         var fileStream = new MemoryStream();
 
+        
 
-
-        await SelectedFile.OpenReadStream(5000000000).CopyToAsync(fileStream);
+        await SelectedFile.OpenReadStream().CopyToAsync(fileStream);
 
 
 

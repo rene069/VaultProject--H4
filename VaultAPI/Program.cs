@@ -1,3 +1,8 @@
+using Datalayer;
+using Microsoft.EntityFrameworkCore;
+using ServiceLayer.Interface;
+using ServiceLayer.Services;
+
 namespace VaultAPI
 {
     public class Program
@@ -13,6 +18,9 @@ namespace VaultAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<VaultContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+            builder.Services.AddScoped<IFileEncryption,FileEncryption>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -1,0 +1,14 @@
+﻿@page "/Savepass"
+<h3>SavePass</h3>
+
+<input type="text" @bind="SiteName" />
+
+<input type="password" @bind="password" />
+
+
+@code {
+    public string SiteName { get; set; } 
+    public string password { get; set; }
+
+
+}

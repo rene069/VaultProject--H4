@@ -16,13 +16,15 @@ namespace ServiceLayer.Services
         {
 
             AesManaged aes = new AesManaged();
+            UnicodeEncoding UE = new UnicodeEncoding();
 
+            byte[] passwordBytes = UE.GetBytes(password);
+            byte[] aesKey = SHA256Managed.Create().ComputeHash(passwordBytes);
+            byte[] aesIV = MD5.Create().ComputeHash(passwordBytes);
 
             //set the key and IV (initialization vector) from the password
-            byte[] key = Encoding.UTF8.GetBytes(password);
-            byte[] iv = Encoding.UTF8.GetBytes(password);
-            aes.Key = key;
-            aes.IV = iv;
+            
+       
 
  
             // open the file for reading
@@ -46,12 +48,17 @@ namespace ServiceLayer.Services
         {
             // Create a new instance of the RijndaelManaged class
             AesManaged aes = new AesManaged();
-
+            UnicodeEncoding UE = new UnicodeEncoding();
+            
             // Set the key and IV from the password
-            byte[] key = Encoding.UTF8.GetBytes(password);
-            byte[] iv = Encoding.UTF8.GetBytes(password);
-            aes.Key = key;
-            aes.IV = iv;
+            byte[] passwordBytes = UE.GetBytes(password);
+            byte[] aesKey = SHA256Managed.Create().ComputeHash(passwordBytes);
+            byte[] aesIV = MD5.Create().ComputeHash(passwordBytes);
+
+
+
+            aes.Key = aesKey;
+            aes.IV = aesIV;
 
             // Open the encrypted file for reading
             using (var input = file.OpenReadStream())
