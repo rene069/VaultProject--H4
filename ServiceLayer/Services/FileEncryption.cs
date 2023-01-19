@@ -17,19 +17,17 @@ namespace ServiceLayer.Services
 
             AesManaged aes = new AesManaged();
             UnicodeEncoding UE = new UnicodeEncoding();
-
+            //set the key and IV (initialization vector) from the password
             byte[] passwordBytes = UE.GetBytes(password);
             byte[] aesKey = SHA256Managed.Create().ComputeHash(passwordBytes);
             byte[] aesIV = MD5.Create().ComputeHash(passwordBytes);
+            aes.Key = aesKey;
+            aes.IV = aesIV;
 
-            //set the key and IV (initialization vector) from the password
-            
-       
 
- 
             // open the file for reading
 
-            using(var input = file.OpenReadStream())
+            using (var input = file.OpenReadStream())
             {
                 // create a new file for writing the encrypted data
                 using(var output = new FileStream(outputpath, FileMode.Create, FileAccess.Write))
