@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "Datalayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaultAPI", "VaultAPI\VaultAPI.csproj", "{7A1A98DE-A72A-4F96-AA6C-8ED5AD8D5C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{60A85399-0916-4414-B104-C1F61A41689E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{60A85399-0916-4414-B104-C1F61A41689E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaultSite", "VaultSite\VaultSite.csproj", "{F7F6D59A-34E5-452A-AA95-21A9AFCA8599}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaultSite", "VaultSite\VaultSite.csproj", "{F7F6D59A-34E5-452A-AA95-21A9AFCA8599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

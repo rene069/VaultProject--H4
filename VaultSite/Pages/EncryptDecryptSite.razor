@@ -1,0 +1,71 @@
+﻿@page "/EncryptDecryptSite"
+@using VaultSite.Client;
+@inject EncryptionDecryptionService _encryptionDecryptionService
+<h3>EncryptDecryptSite</h3>
+
+<form>
+    <InputFile OnChange="@HandleSelectedFiles" />
+    <br />
+    <input type="password" @bind="Password" placeholder="Password" />
+    <br />
+    <button type="submit" @onclick="EncryptFile">Encrypt</button>
+    <button type="submit" @onclick="DecryptFile">Decrypt</button>
+</form>
+
+@if (EncryptionResult != null)
+{
+    <p>Encryption Result: @EncryptionResult</p>
+}
+
+@if (DecryptionResult != null)
+{
+    <p>Decryption Result: @DecryptionResult</p>
+}
+
+
+@code {
+    private IBrowserFile SelectedFile { get; set; }
+    private string Password { get; set; }
+    private string EncryptionResult { get; set; }
+    private string DecryptionResult { get; set; }
+
+    private async Task HandleSelectedFiles(InputFileChangeEventArgs e)
+    {
+        SelectedFile = e.File;
+    }
+
+    private async Task EncryptFile()
+    {
+
+        if (SelectedFile == null || string.IsNullOrEmpty(Password))
+        {
+            return;
+        }
+
+        var fileStream = new MemoryStream();
+
+        var test =  SelectedFile.OpenReadStream().ReadByte();
+
+        await SelectedFile.OpenReadStream(5000000000).CopyToAsync(fileStream);
+
+
+
+
+        var result = await _encryptionDecryptionService.EncryptFile(fileStream, Password);
+        EncryptionResult = result ? "Encryption successful!" : "Encryption failed!";
+    }
+
+    private async Task DecryptFile()
+    {
+        if (SelectedFile == null || string.IsNullOrEmpty(Password))
+        {
+            return;
+        }
+
+        var fileStream = new MemoryStream();
+        await SelectedFile.OpenReadStream().CopyToAsync(fileStream);
+
+        var result = await _encryptionDecryptionService.DecryptFile(fileStream, Password);
+        DecryptionResult = result ? "Decryption successful!" : "Decryption failed!";
+    }
+}
