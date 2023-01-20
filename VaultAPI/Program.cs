@@ -30,6 +30,7 @@ namespace VaultAPI
                 app.UseSwaggerUI();
                 app.UseSwaggerUI();
                 app.UseWebAssemblyDebugging();
+                app.UseHsts();
             }
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();

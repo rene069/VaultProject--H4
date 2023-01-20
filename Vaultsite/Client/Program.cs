@@ -19,6 +19,8 @@ namespace VaultSite
             builder.Services.AddHttpClient<EncryptionDecryptionService>(config => config.BaseAddress = AppConfig.VaultAPI_BaseAdress);
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = AppConfig.VaultAPI_BaseAdress });
             
+            
+
             await builder.Build().RunAsync();
         }
     }

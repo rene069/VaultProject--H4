@@ -14,7 +14,7 @@ namespace ServiceLayer.Services
 
         public void EncryptFile(IFormFile file, string password, string outputpath)
         {
-
+            // Create a new instance of the AesManaged class
             AesManaged aes = new AesManaged();
             UnicodeEncoding UE = new UnicodeEncoding();
             //set the key and IV (initialization vector) from the password
@@ -44,7 +44,7 @@ namespace ServiceLayer.Services
 
         public void DecryptFile(IFormFile file, string password, string outputpath)
         {
-            // Create a new instance of the RijndaelManaged class
+            // Create a new instance of the AesManaged class
             AesManaged aes = new AesManaged();
             UnicodeEncoding UE = new UnicodeEncoding();
             
@@ -52,7 +52,6 @@ namespace ServiceLayer.Services
             byte[] passwordBytes = UE.GetBytes(password);
             byte[] aesKey = SHA256Managed.Create().ComputeHash(passwordBytes);
             byte[] aesIV = MD5.Create().ComputeHash(passwordBytes);
-
 
 
             aes.Key = aesKey;
