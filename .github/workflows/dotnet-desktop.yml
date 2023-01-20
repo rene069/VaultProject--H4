@@ -1,0 +1,16 @@
+name: Test File Encryption and Decryption
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build project
+      run: dotnet build --configuration Release
+    - name: Run tests
+      run: dotnet test --configuration Release
