@@ -26,7 +26,6 @@ namespace VaultAPI.Controllers
         public IActionResult Encrypt(IFormFile file, string password)
         {
             string path = Path.Combine(hostingEnv.ContentRootPath, "Files", "Encrypted.txt");
-            //string FilePath = Path.Combine(path, "Files");
             try
             {
                 _fileEncryption.EncryptFile(file, password, path);
@@ -43,7 +42,6 @@ namespace VaultAPI.Controllers
         public IActionResult DecryptFile(IFormFile file, string password)
         {
             string path = Path.Combine(hostingEnv.ContentRootPath, "Files", "Decrypted.txt");
-
             try
             {
                 // Decrypt the file

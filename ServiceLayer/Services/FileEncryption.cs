@@ -24,7 +24,6 @@ namespace ServiceLayer.Services
             aes.Key = aesKey;
             aes.IV = aesIV;
 
-
             // open the file for reading
 
             using (var input = file.OpenReadStream())
