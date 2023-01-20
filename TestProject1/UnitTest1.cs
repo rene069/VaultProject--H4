@@ -24,6 +24,7 @@ namespace TestProject1
             var file = File.OpenRead("testfile.txt");           
             var formFile = new FormFile(file, 0, file.Length, "testfile", "testfile.txt");      
             var password = "123456";
+
             var outputEncryptedPath = "encrypted.txt";
             var outputDecryptedPath = "decrypted.txt";
 
