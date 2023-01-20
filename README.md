@@ -1,3 +1,5 @@
+[![.NET Core Desktop](https://github.com/rene069/VaultProject--H4/actions/workflows/dotnet-desktoptest.yml/badge.svg)](https://github.com/rene069/VaultProject--H4/actions/workflows/dotnet-desktoptest.yml)
+
 
 # File Encryption and Decryption Methods
 
